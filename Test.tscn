@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://shrub.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tankbeetle.gd" type="Script" id=3]
+[ext_resource path="res://tankbeetle.png" type="Texture" id=4]
+[ext_resource path="res://worm.gd" type="Script" id=5]
+[ext_resource path="res://worm.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -11,12 +15,12 @@ extents = Vector2( 30, 30 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 100 )
+extents = Vector2( 10, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 14.7692, 7.99472 )
 
 [node name="Test" type="Node" index="0"]
 
@@ -28,10 +32,11 @@ position = Vector2( 526.509, -40 )
 scale = Vector2( 1.45341, 1.40706 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="1" groups=[
+[node name="floor" type="Area2D" parent="." index="1" groups=[
 "Platform",
 ]]
 
+editor/display_folded = true
 position = Vector2( 512, 600 )
 scale = Vector2( 20, 1 )
 input_pickable = true
@@ -43,17 +48,28 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" index="0"]
 
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D2" type="Area2D" parent="." index="2" groups=[
-"Wall",
-]]
+[node name="tankbeetle" type="Node2D" parent="." index="2"]
 
-position = Vector2( 3.05054, 236.654 )
-scale = Vector2( 1, 2.31325 )
+editor/display_folded = true
+position = Vector2( 974, 504 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="tankbeetle" index="0"]
+
+position = Vector2( 135.035, -18.412 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="tankbeetle/Sprite" index="0"]
+
+position = Vector2( -340.811, -181.008 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -63,19 +79,28 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tankbeetle/Sprite/Area2D" index="0"]
 
-position = Vector2( -4.10107, -4.64211 )
-scale = Vector2( 1, 0.956465 )
+position = Vector2( 342.546, 178.626 )
+scale = Vector2( 3, 3 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D3" type="Area2D" parent="." index="3" groups=[
-"Wall",
-]]
+[node name="worm" type="Node2D" parent="." index="3"]
 
-position = Vector2( 1024, 236 )
-scale = Vector2( 1, 1.98747 )
+position = Vector2( 0, 510 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="worm" index="0"]
+
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="worm/Sprite" index="0"]
+
+position = Vector2( -0.16253, 20.7234 )
+scale = Vector2( 0.733281, 0.45125 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -83,19 +108,22 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worm/Sprite/Area2D" index="0"]
 
-position = Vector2( -6.15161, -7.10974 )
-scale = Vector2( 1, 10.8023 )
+position = Vector2( 0, 0.0192184 )
+scale = Vector2( 2, 2.75421 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
 
-[connection signal="area_entered" from="Area2D2" to="shrub" method="_on_Area2D2_area_entered"]
+[connection signal="area_entered" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_entered"]
 
-[connection signal="area_exited" from="Area2D2" to="shrub" method="_on_Area2D2_area_exited"]
+[connection signal="area_exited" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_exited"]
+
+[connection signal="area_entered" from="worm/Sprite/Area2D" to="worm" method="_on_Area2D_area_entered"]
+
+[connection signal="area_exited" from="worm/Sprite/Area2D" to="worm" method="_on_Area2D_area_exited"]
 
 

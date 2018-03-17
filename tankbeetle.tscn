@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tankbeetle.gd" type="Script" id=1]
+[ext_resource path="res://tankbeetle.png" type="Texture" id=2]
+
+[node name="tankbeetle" type="Node2D"]
+
+position = Vector2( 256.489, 242.237 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+
