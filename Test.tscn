@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Test.gd" type="Script" id=1]
+[ext_resource path="res://shrub.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 100 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Test" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="shrub" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 526.509, -40 )
+scale = Vector2( 1.45341, 1.40706 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="1" groups=[
+"Platform",
+]]
+
+position = Vector2( 512, 600 )
+scale = Vector2( 20, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D2" type="Area2D" parent="." index="2" groups=[
+"Wall",
+]]
+
+position = Vector2( 3.05054, 236.654 )
+scale = Vector2( 1, 2.31325 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
+
+position = Vector2( -4.10107, -4.64211 )
+scale = Vector2( 1, 0.956465 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D3" type="Area2D" parent="." index="3" groups=[
+"Wall",
+]]
+
+position = Vector2( 1024, 236 )
+scale = Vector2( 1, 1.98747 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" index="0"]
+
+position = Vector2( -6.15161, -7.10974 )
+scale = Vector2( 1, 10.8023 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
+
+[connection signal="area_entered" from="Area2D2" to="shrub" method="_on_Area2D2_area_entered"]
+
+[connection signal="area_exited" from="Area2D2" to="shrub" method="_on_Area2D2_area_exited"]
+
+
