@@ -11,7 +11,10 @@ onready var mov = [Vector2(-spd, 0), Vector2(spd, 0)]
 onready var grounded = false
 onready var oob = false
 
+var screen_size
+
 func _ready():
+ screen_size = get_viewport_rect().size
  define_input()
  set_process(true)
  pass
@@ -27,6 +30,10 @@ func _process(delta):
  if(!grounded):
   position.y += GRAVITY * delta
   #ground is at y = 504
+ if(position.x < 40):
+  position.x = 40
+ if(position.x > screen_size.x - 40):
+  position.x = screen_size.x - 40
 
 func define_input():
  input = ["ui_left", "ui_right"]
