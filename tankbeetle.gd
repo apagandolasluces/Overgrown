@@ -1,29 +1,29 @@
 extends Node2D
 
 signal landed
-
-const GRAVITY = 200
-
-onready var hp = 50
-onready var spd = 75
 onready var grounded = false
 
-var screen_size
-
-func _ready():
- screen_size = get_viewport_rect().size
- set_process(true)
- pass
-
-func _process(delta):
- if(!grounded):
-  position.y += GRAVITY * delta
-  #ground is at y = 504
- if(position.x < 40):
-  position.x = 40
- if(position.x > screen_size.x - 40):
-  position.x = screen_size.x - 40
-
+class tankbeetle:
+	var pos;
+	var end;
+	var frame = 0;
+	var aim = Vector2(0,0);
+	var time = 0;
+	var len_ray = 200;
+	var ray1 = Vector2(0,0);
+	var ray2 = Vector2(0,0);
+	func _init(arg1, arg2): 
+		pos = arg1; 
+		end = arg2
+	
+	func math():
+		randomize();
+		if abs(pos.x==end.x)<5 and abs(pos.y==end.y)<4:
+				end = Vector2(rand_range(0,1024), rand_range(0,600))
+		pos += Vector2(-speed+sin(dir()), -speed+cos(dir())
+		ray1 = Vector2(pos.x-len_ray+sin(dir()+0.25),pos.y-len_ray+cos(dir()+0.25)				
+	
+		
 
 
 func _on_Area2D_area_entered(area):

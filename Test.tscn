@@ -53,16 +53,17 @@ _sections_unfolded = [ "Transform" ]
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tankbeetle" type="Node2D" parent="." index="2"]
+[node name="tankbeetle" type="Node2D" parent="." index="2" groups=[
+"Enemies",
+]]
 
-editor/display_folded = true
 position = Vector2( 974, 504 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="tankbeetle" index="0"]
 
-position = Vector2( 135.035, -18.412 )
+position = Vector2( -37.0724, -25.8144 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -81,12 +82,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tankbeetle/Sprite/Area2D" index="0"]
 
-position = Vector2( 342.546, 178.626 )
+position = Vector2( 340.695, 179.859 )
 scale = Vector2( 3, 3 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="worm" type="Node2D" parent="." index="3"]
+[node name="worm" type="Node2D" parent="." index="3" groups=[
+"Enemies",
+]]
 
 position = Vector2( 0, 510 )
 scale = Vector2( 2, 2 )
@@ -96,6 +99,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite" type="Sprite" parent="worm" index="0"]
 
 texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="worm/Sprite" index="0"]
 
@@ -108,6 +112,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worm/Sprite/Area2D" index="0"]
 
@@ -118,9 +123,13 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
 
+[connection signal="landed" from="tankbeetle" to="." method="_on_tankbeetle_landed"]
+
 [connection signal="area_entered" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_entered"]
 
 [connection signal="area_exited" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_exited"]
+
+[connection signal="landed" from="worm" to="." method="_on_worm_landed"]
 
 [connection signal="area_entered" from="worm/Sprite/Area2D" to="worm" method="_on_Area2D_area_entered"]
 
