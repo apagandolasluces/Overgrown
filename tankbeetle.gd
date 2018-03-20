@@ -16,12 +16,7 @@ class tankbeetle:
 		pos = arg1; 
 		end = arg2
 	
-	func math():
-		randomize();
-		if abs(pos.x==end.x)<5 and abs(pos.y==end.y)<4:
-				end = Vector2(rand_range(0,1024), rand_range(0,600))
-		pos += Vector2(-speed+sin(dir()), -speed+cos(dir())
-		ray1 = Vector2(pos.x-len_ray+sin(dir()+0.25),pos.y-len_ray+cos(dir()+0.25)				
+
 	
 		
 
