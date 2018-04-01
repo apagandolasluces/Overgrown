@@ -20,8 +20,6 @@ func _ready():
  pass
 
 func _process(delta):
- if(!grounded):
-  position.y += GRAVITY * delta
   #ground is at y = 504
  if(position.x < 40):
   position.x = 40
