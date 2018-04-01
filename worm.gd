@@ -7,6 +7,7 @@ const GRAVITY = 200
 onready var hp = 50
 onready var spd = 230
 onready var grounded = false
+onready var direction = Vector2(spd,0)
 
 var screen_size
 
@@ -15,13 +16,23 @@ func _ready():
  set_process(true)
  pass
 
+func RotatePlayer(start, finish):
+    var angle = start.angle_to_point(finish)
+    set_rot(angle)
+
 func _process(delta):
- if(position.x < 40):
-  position.x = 40
- if(position.x > screen_size.x - 40):
-  position.x = screen_size.x - 40
- if(position.y < 178):
-  position.y = 178
+    if(position.x < screen_size.x):
+        position -= direction * delta
+        if(position.x < 40):
+            direction.x = -(direction.x)
+            if(position.x == 0):
+                RotatePlayer(screen_size.x, position.x)
+    if(position.x > screen_size.x):
+        position += direction * delta
+        if(position.x > screen_size.x - 40):
+            direction.x = -(direction.x)
+            if(position.x == screen_size.x):
+                RotatePlayer(position.x, screen_size.x)
 
 
 
@@ -33,7 +44,7 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
  if(area.is_in_group("Platform")):
-  grounded = false
+  grounded = true
 
 
 	

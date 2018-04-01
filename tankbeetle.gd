@@ -3,7 +3,7 @@ extends Node2D
 signal landed
 onready var grounded = false
 onready var spd = 200
-onready var direction = Vector2(10,0)
+onready var direction = Vector2(spd,0)
 var screen_size
 
 func _ready():
@@ -11,21 +11,23 @@ func _ready():
 	set_process(true)
 	pass
 
+func RotatePlayer(start, finish):
+    var angle = start.angle_to_point(finish)
+    set_rot(angle)
 
 func _process(delta):
-    if(position.x < 40):
-        position.x = 40
-    if(position.x > screen_size.x - 40):
-        position.x = screen_size.x - 40
-    if(position.y < 178):
-	    position.y = 178
-    """while(position.x > 0 and position.x < screen_size.x):
-        if(position.x < 0):
-           position += direction 
-        if(position.x > 0):
-           position += direction 
-        if(position.x < screen_size.x):
-           position -= direction """
+    if(position.x < screen_size.x):
+        position -= direction * delta
+        if(position.x < 40):
+            direction.x = -(direction.x)
+            if(position.x == 0):
+                RotatePlayer(screen_size.x, position.x)
+    if(position.x > screen_size.x):
+        position += direction * delta
+        if(position.x > screen_size.x - 40):
+            direction.x = -(direction.x)
+            if(position.x == screen_size.x):
+                RotatePlayer(position.x, screen_size.x)
 	
 	
 		
@@ -38,7 +40,7 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
  if(area.is_in_group("Platform")):
-  grounded = false
+  grounded = true
 
 
 	
