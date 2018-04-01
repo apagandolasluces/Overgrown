@@ -3,7 +3,7 @@ extends Node2D
 signal landed
 onready var grounded = false
 onready var spd = 200
-onready var mov = [Vector2(-spd, 0), Vector2(spd, 0)]
+onready var direction = Vector2(10,0)
 var screen_size
 
 func _ready():
@@ -19,6 +19,13 @@ func _process(delta):
         position.x = screen_size.x - 40
     if(position.y < 178):
 	    position.y = 178
+    """while(position.x > 0 and position.x < screen_size.x):
+        if(position.x < 0):
+           position += direction 
+        if(position.x > 0):
+           position += direction 
+        if(position.x < screen_size.x):
+           position -= direction """
 	
 	
 		

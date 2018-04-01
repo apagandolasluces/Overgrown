@@ -20,13 +20,6 @@ func _ready():
  pass
 
 func _process(delta):
- for x in range(2): #0: up
-  if(Input.is_action_pressed(input[x])):
-   position += mov[x] * delta#position = position + move[x]
-  elif(false):
-   pass
-  else:
-   pass
  if(!grounded):
   position.y += GRAVITY * delta
   #ground is at y = 504
