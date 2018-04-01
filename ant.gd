@@ -2,7 +2,7 @@ extends Node2D
 
 signal landed
 onready var grounded = false
-onready var spd = 150
+onready var spd = 200
 onready var direction = Vector2(spd,0)
 var screen_size
 
@@ -12,16 +12,18 @@ func _ready():
 	pass
 
 func _process(delta):
+    if(position.y < 573):
+       position.y = screen_size.y - 600
     if(position.x < screen_size.x):
         position -= direction * delta
         if(position.x < 40):
             direction.x = -(direction.x)
-            get_node("Sprite").set_flip_h(true)
+            get_node("Sprite").set_flip_h(false)
     if(position.x > screen_size.x):
         position += direction * delta
         if(position.x > screen_size.x - 40):
             direction.x = -(direction.x)
-            get_node("Sprite").set_flip_h(false)
+            get_node("Sprite").set_flip_h(true)
 	
 	
 		

@@ -1,14 +1,9 @@
 extends Node2D
 
 signal landed
-
-const GRAVITY = 200
-
-onready var hp = 50
 onready var spd = 230
 onready var grounded = false
 onready var direction = Vector2(spd,0)
-
 var screen_size
 
 func _ready():
@@ -16,24 +11,17 @@ func _ready():
  set_process(true)
  pass
 
-func RotatePlayer(start, finish):
-    var angle = start.angle_to_point(finish)
-    set_rot(angle)
-
 func _process(delta):
     if(position.x < screen_size.x):
         position -= direction * delta
         if(position.x < 40):
             direction.x = -(direction.x)
-            if(position.x == 0):
-                RotatePlayer(screen_size.x, position.x)
+            get_node("Sprite").set_flip_h(true)
     if(position.x > screen_size.x):
         position += direction * delta
         if(position.x > screen_size.x - 40):
             direction.x = -(direction.x)
-            if(position.x == screen_size.x):
-                RotatePlayer(position.x, screen_size.x)
-
+            get_node("Sprite").set_flip_h(false)
 
 
 func _on_Area2D_area_entered(area):
