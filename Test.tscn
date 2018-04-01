@@ -50,7 +50,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="shrub" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 526.509, -40 )
+position = Vector2( 520.957, 513.335 )
 scale = Vector2( 1.45341, 1.40706 )
 _sections_unfolded = [ "Transform" ]
 
@@ -85,8 +85,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="tankbeetle" index="0"]
 
-position = Vector2( -37.0724, -25.8144 )
-scale = Vector2( 3, 3 )
+position = Vector2( -33.0447, -40.7558 )
+scale = Vector2( 3, 2.79943 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
@@ -104,7 +104,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tankbeetle/Sprite/Area2D" index="0"]
 
-position = Vector2( 340.695, 179.859 )
+position = Vector2( 335.76, 178.539 )
 scale = Vector2( 3, 3 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
@@ -113,7 +113,7 @@ _sections_unfolded = [ "Transform" ]
 "Enemies",
 ]]
 
-position = Vector2( 0, 510 )
+position = Vector2( 66.6223, 484.091 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
@@ -125,7 +125,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="worm/Sprite" index="0"]
 
-position = Vector2( -0.16253, 20.7234 )
+position = Vector2( 38.7004, -3.33463 )
 scale = Vector2( 0.733281, 0.45125 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -138,7 +138,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worm/Sprite/Area2D" index="0"]
 
-position = Vector2( 0, 0.0192184 )
+position = Vector2( -54.2606, 49.2322 )
 scale = Vector2( 2, 2.75421 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]

@@ -2,24 +2,26 @@ extends Node2D
 
 signal landed
 onready var grounded = false
+onready var spd = 200
+onready var mov = [Vector2(-spd, 0), Vector2(spd, 0)]
+var screen_size
 
-class tankbeetle:
-	var pos;
-	var end;
-	var frame = 0;
-	var aim = Vector2(0,0);
-	var time = 0;
-	var len_ray = 200;
-	var ray1 = Vector2(0,0);
-	var ray2 = Vector2(0,0);
-	func _init(arg1, arg2): 
-		pos = arg1; 
-		end = arg2
+func _ready():
+	screen_size = get_viewport_rect().size
+	set_process(true)
+	pass
+
+
+func _process(delta):
+    if(position.x < 40):
+        position.x = 40
+    if(position.x > screen_size.x - 40):
+        position.x = screen_size.x - 40
+    if(position.y < 178):
+	    position.y = 178
 	
-
 	
 		
-
 
 func _on_Area2D_area_entered(area):
  if(area.is_in_group("Platform")):
