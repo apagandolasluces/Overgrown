@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://background_tileset.tres" type="TileSet" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://tankbeetle.png" type="Texture" id=5]
 [ext_resource path="res://worm.gd" type="Script" id=6]
 [ext_resource path="res://worm.png" type="Texture" id=7]
-[ext_resource path="res://ant.gd" type="Script" id=8]
-[ext_resource path="res://ant2.png" type="Texture" id=9]
+[ext_resource path="res://ant2.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,11 +23,6 @@ extents = Vector2( 10, 10 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 14.7692, 7.99472 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 5.11338, 8.55402 )
 
 [node name="Test" type="Node" index="0"]
 
@@ -155,20 +149,21 @@ _sections_unfolded = [ "Transform" ]
 "Enemies",
 ]]
 
-script = ExtResource( 8 )
+position = Vector2( 340.622, 492.091 )
+scale = Vector2( 2, 2 )
+z_index = 1
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="ant" index="0"]
 
-position = Vector2( 740, 504 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="ant/Sprite" index="0"]
 
-position = Vector2( 10.8685, -2.65466 )
-scale = Vector2( 1.61725, 1 )
+position = Vector2( 1.21114, 15.978 )
+scale = Vector2( 0.733281, 0.45125 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -176,11 +171,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ant/Sprite/Area2D" index="0"]
 
-scale = Vector2( 3.33191, 3 )
-shape = SubResource( 4 )
+position = Vector2( -0.612595, 2.3349 )
+scale = Vector2( 2, 2.75421 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]

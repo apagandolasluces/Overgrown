@@ -1,8 +1,8 @@
 extends Node2D
 
 signal landed
-onready var spd = 230
 onready var grounded = false
+onready var spd = 200
 onready var direction = Vector2(spd,0)
 var screen_size
 

@@ -16,3 +16,7 @@ func _on_tankbeetle_landed():
 
 func _on_worm_landed():
 	pass # replace with function body
+	
+
+func _on_ant_landed():
+	pass # replace with function body
