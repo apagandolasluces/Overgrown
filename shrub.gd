@@ -1,4 +1,5 @@
-extends Node2D
+
+extends AnimatedSprite
 
 signal landed
 
@@ -12,6 +13,7 @@ onready var grounded = false
 onready var oob = false
 
 var screen_size
+var time = 0
 
 func _ready():
  screen_size = get_viewport_rect().size
@@ -21,10 +23,13 @@ func _ready():
 
 func _process(delta):
   #ground is at y = 504
- if(position.x < 40):
-  position.x = 40
- if(position.x > screen_size.x - 40):
-  position.x = screen_size.x - 40
+ time = time + delta
+ if(time < 0.1):
+  if(get_frame() == self.get_sprite_frames().get_frame_count()-1):
+    set_frame(0)
+  else:
+    self.set_frame(get_frame() + 1)      
+  time = 0
 
 func define_input():
  input = ["ui_left", "ui_right"]
