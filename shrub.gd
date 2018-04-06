@@ -30,6 +30,7 @@ func _process(delta):
   else:
     self.set_frame(get_frame() + 1)      
   time = 0
+  
 
 func define_input():
  input = ["ui_left", "ui_right"]
