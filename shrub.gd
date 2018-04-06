@@ -23,13 +23,24 @@ func _ready():
 
 func _process(delta):
   #ground is at y = 504
- time = time + delta
- if(time < 0.1):
-  if(get_frame() == self.get_sprite_frames().get_frame_count("default")-1):
-    set_frame(0)
-  else:
-    self.set_frame(get_frame() + 1)      
-  time = 0
+ if(Input.is_key_pressed(KEY_RIGHT)):
+    self.set_flip_h(false)
+    time = time + delta
+    if(time < 0.1):
+       if(get_frame() == self.get_sprite_frames().get_frame_count("default")-1):
+          set_frame(0)
+       else:
+          self.set_frame(get_frame() + 1)      
+    time = 0
+ if(Input.is_key_pressed(KEY_LEFT)):
+    self.set_flip_h(true)
+    time = time + delta
+    if(time < 0.1):
+       if(get_frame() == self.get_sprite_frames().get_frame_count("default")-1):
+          set_frame(0)
+       else:
+          self.set_frame(get_frame() + 1)   
+    time = 0
   
 
 func define_input():

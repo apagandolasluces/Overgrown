@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://background_tileset.tres" type="TileSet" id=2]
@@ -8,22 +8,30 @@
 [ext_resource path="res://background/cloud4.png" type="Texture" id=6]
 [ext_resource path="res://background/cloud3.png" type="Texture" id=7]
 [ext_resource path="res://shrub.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/tankbeetle (2).png" type="Texture" id=9]
-[ext_resource path="res://characters/tankbeetle (3).png" type="Texture" id=10]
-[ext_resource path="res://characters/tankbeetle (4).png" type="Texture" id=11]
-[ext_resource path="res://characters/tankbeetle.png" type="Texture" id=12]
-[ext_resource path="res://tankbeetle.gd" type="Script" id=13]
-[ext_resource path="res://worm.tscn" type="PackedScene" id=14]
-[ext_resource path="res://ant.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Label.gd" type="Script" id=16]
+[ext_resource path="res://characters/vinewhip2.png" type="Texture" id=9]
+[ext_resource path="res://characters/vinewhip3.png" type="Texture" id=10]
+[ext_resource path="res://characters/vinewhip4.png" type="Texture" id=11]
+[ext_resource path="res://characters/vinewhip5.png" type="Texture" id=12]
+[ext_resource path="res://characters/vinewhip6.png" type="Texture" id=13]
+[ext_resource path="res://characters/vinewhip7.png" type="Texture" id=14]
+[ext_resource path="res://characters/vinewhip8.png" type="Texture" id=15]
+[ext_resource path="res://characters/vinewhip9.png" type="Texture" id=16]
+[ext_resource path="res://characters/tankbeetle (2).png" type="Texture" id=17]
+[ext_resource path="res://characters/tankbeetle (3).png" type="Texture" id=18]
+[ext_resource path="res://characters/tankbeetle (4).png" type="Texture" id=19]
+[ext_resource path="res://characters/tankbeetle.png" type="Texture" id=20]
+[ext_resource path="res://tankbeetle.gd" type="Script" id=21]
+[ext_resource path="res://worm.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ant.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Label.gd" type="Script" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
-"speed": 60.0
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -34,7 +42,7 @@ extents = Vector2( 30, 30 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -118,6 +126,9 @@ position = Vector2( 520.957, 513.335 )
 scale = Vector2( 1.45341, 1.40706 )
 z_index = 1
 frames = SubResource( 1 )
+frame = 6
+playing = false
+flip_h = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="floor" type="Area2D" parent="." index="2" groups=[
@@ -149,10 +160,8 @@ position = Vector2( 933.916, 487.807 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 2
-playing = true
-script = ExtResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+script = ExtResource( 21 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="tankbeetle" index="0"]
 
@@ -179,13 +188,9 @@ scale = Vector2( 3, 1.71499 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="worm" parent="." index="4" instance=ExtResource( 14 )]
+[node name="worm" parent="." index="4" instance=ExtResource( 22 )]
 
-frame = 3
-
-[node name="ant" parent="." index="5" instance=ExtResource( 15 )]
-
-frame = 1
+[node name="ant" parent="." index="5" instance=ExtResource( 23 )]
 
 [node name="Label" type="Label" parent="." index="6"]
 
@@ -216,7 +221,7 @@ Nicholas Lacroix"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 16 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Pause", "Rect", "custom_colors" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
