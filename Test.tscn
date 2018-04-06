@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://background_tileset.tres" type="TileSet" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://characters/ant2.png" type="Texture" id=22]
 [ext_resource path="res://characters/ant3.png" type="Texture" id=23]
 [ext_resource path="res://characters/ant4.png" type="Texture" id=24]
+[ext_resource path="res://Label.gd" type="Script" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -180,7 +181,6 @@ position = Vector2( 933.916, 487.807 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
 playing = true
 script = ExtResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -255,6 +255,7 @@ position = Vector2( 340.622, 501.091 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 1
 playing = true
 script = ExtResource( 21 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -282,6 +283,37 @@ position = Vector2( -0.612595, 2.3349 )
 scale = Vector2( 2, 2.75421 )
 shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Label" type="Label" parent="." index="6"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 415.0
+margin_top = 167.0
+margin_right = 519.0
+margin_bottom = 300.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OVERGROWN
+\"Press Enter\"
+
+By:
+Tri Dao
+Nicholas Lacroix"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 25 )
+_sections_unfolded = [ "Pause", "Rect", "custom_colors" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
 

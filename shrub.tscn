@@ -10,7 +10,7 @@
 [ext_resource path="res://characters/vinewhip8.png" type="Texture" id=8]
 [ext_resource path="res://characters/vinewhip9.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
@@ -32,9 +32,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	pass
+	get_tree().paused = true
 
 
 
