@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://background_tileset.tres" type="TileSet" id=2]
@@ -13,18 +13,9 @@
 [ext_resource path="res://characters/tankbeetle (4).png" type="Texture" id=11]
 [ext_resource path="res://characters/tankbeetle.png" type="Texture" id=12]
 [ext_resource path="res://tankbeetle.gd" type="Script" id=13]
-[ext_resource path="res://characters/worm2.png" type="Texture" id=14]
-[ext_resource path="res://characters/worm3.png" type="Texture" id=15]
-[ext_resource path="res://characters/worm4.png" type="Texture" id=16]
-[ext_resource path="res://characters/worm5.png" type="Texture" id=17]
-[ext_resource path="res://characters/worm6.png" type="Texture" id=18]
-[ext_resource path="res://characters/worm7.png" type="Texture" id=19]
-[ext_resource path="res://characters/worm.png" type="Texture" id=20]
-[ext_resource path="res://worm.gd" type="Script" id=21]
-[ext_resource path="res://characters/ant2.png" type="Texture" id=22]
-[ext_resource path="res://characters/ant3.png" type="Texture" id=23]
-[ext_resource path="res://characters/ant4.png" type="Texture" id=24]
-[ext_resource path="res://Label.gd" type="Script" id=25]
+[ext_resource path="res://worm.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ant.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Label.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -53,29 +44,6 @@ animations = [ {
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
-
-[sub_resource type="SpriteFrames" id=5]
-
-animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 14.7692, 7.99472 )
-
-[sub_resource type="SpriteFrames" id=7]
-
-animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
 
 [node name="Test" type="Node" index="0"]
 
@@ -181,6 +149,7 @@ position = Vector2( 933.916, 487.807 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 2
 playing = true
 script = ExtResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -210,79 +179,13 @@ scale = Vector2( 3, 1.71499 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="worm" type="AnimatedSprite" parent="." index="4" groups=[
-"Enemies",
-]]
+[node name="worm" parent="." index="4" instance=ExtResource( 14 )]
 
-position = Vector2( 45.8245, 517.889 )
-scale = Vector2( 1.22971, 1.22971 )
-frames = SubResource( 5 )
-animation = "default"
+frame = 3
+
+[node name="ant" parent="." index="5" instance=ExtResource( 15 )]
+
 frame = 1
-playing = true
-script = ExtResource( 21 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Sprite" type="Sprite" parent="worm" index="0"]
-
-_sections_unfolded = [ "Animation", "Transform" ]
-
-[node name="Area2D" type="Area2D" parent="worm/Sprite" index="0"]
-
-position = Vector2( 1.21114, 15.978 )
-scale = Vector2( 0.733281, 0.45125 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="worm/Sprite/Area2D" index="0"]
-
-position = Vector2( -0.612595, 2.3349 )
-scale = Vector2( 2, 2.75421 )
-shape = SubResource( 6 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="ant" type="AnimatedSprite" parent="." index="5" groups=[
-"Enemies",
-]]
-
-position = Vector2( 340.622, 501.091 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
-animation = "default"
-frame = 1
-playing = true
-script = ExtResource( 21 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Sprite" type="Sprite" parent="ant" index="0"]
-
-_sections_unfolded = [ "Animation", "Transform" ]
-
-[node name="Area2D" type="Area2D" parent="ant/Sprite" index="0"]
-
-position = Vector2( 1.21114, 15.978 )
-scale = Vector2( 0.733281, 0.45125 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ant/Sprite/Area2D" index="0"]
-
-position = Vector2( -0.612595, 2.3349 )
-scale = Vector2( 2, 2.75421 )
-shape = SubResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="." index="6"]
 
@@ -304,7 +207,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OVERGROWN
-\"Press Enter\"
+ Press Enter
+ to begin
 
 By:
 Tri Dao
@@ -312,7 +216,7 @@ Nicholas Lacroix"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 25 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Pause", "Rect", "custom_colors" ]
 
 [connection signal="landed" from="shrub" to="." method="_on_shrub_landed"]
@@ -320,13 +224,5 @@ _sections_unfolded = [ "Pause", "Rect", "custom_colors" ]
 [connection signal="area_entered" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_entered"]
 
 [connection signal="area_exited" from="tankbeetle/Sprite/Area2D" to="tankbeetle" method="_on_Area2D_area_exited"]
-
-[connection signal="area_entered" from="worm/Sprite/Area2D" to="worm" method="_on_Area2D_area_entered"]
-
-[connection signal="area_exited" from="worm/Sprite/Area2D" to="worm" method="_on_Area2D_area_exited"]
-
-[connection signal="area_entered" from="ant/Sprite/Area2D" to="ant" method="_on_Area2D_area_entered"]
-
-[connection signal="area_exited" from="ant/Sprite/Area2D" to="ant" method="_on_Area2D_area_exited"]
 
 

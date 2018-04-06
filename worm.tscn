@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://characters/ant2.png" type="Texture" id=1]
-[ext_resource path="res://characters/ant3.png" type="Texture" id=2]
-[ext_resource path="res://characters/ant4.png" type="Texture" id=3]
-[ext_resource path="res://worm.gd" type="Script" id=4]
+[ext_resource path="res://characters/worm2.png" type="Texture" id=1]
+[ext_resource path="res://characters/worm3.png" type="Texture" id=2]
+[ext_resource path="res://characters/worm4.png" type="Texture" id=3]
+[ext_resource path="res://characters/worm5.png" type="Texture" id=4]
+[ext_resource path="res://characters/worm6.png" type="Texture" id=5]
+[ext_resource path="res://characters/worm7.png" type="Texture" id=6]
+[ext_resource path="res://characters/worm.png" type="Texture" id=7]
+[ext_resource path="res://worm.gd" type="Script" id=8]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -19,15 +23,15 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 14.7692, 7.99472 )
 
-[node name="ant" type="AnimatedSprite"]
+[node name="worm" type="AnimatedSprite"]
 
-position = Vector2( 340.622, 501.091 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
+position = Vector2( 45.8245, 517.889 )
+scale = Vector2( 1.22971, 1.22971 )
+frames = SubResource( 5 )
 animation = "default"
-frame = 2
+frame = 4
 playing = true
-script = ExtResource( 4 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
