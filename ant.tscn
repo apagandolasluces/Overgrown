@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/ant4.png" type="Texture" id=3]
 [ext_resource path="res://worm.gd" type="Script" id=4]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
@@ -14,7 +14,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 14.7692, 7.99472 )
@@ -23,7 +23,7 @@ extents = Vector2( 14.7692, 7.99472 )
 
 position = Vector2( 340.622, 501.091 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
+frames = SubResource( 1 )
 animation = "default"
 frame = 2
 playing = true
@@ -51,7 +51,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -0.612595, 2.3349 )
 scale = Vector2( 2, 2.75421 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_area_entered"]

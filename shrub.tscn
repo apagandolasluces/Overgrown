@@ -37,7 +37,6 @@ extents = Vector2( 30, 30 )
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
 playing = true
 script = ExtResource( 9 )
 _sections_unfolded = [ "Visibility" ]

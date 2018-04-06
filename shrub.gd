@@ -56,7 +56,9 @@ func _on_Area2D_area_entered(area):
 func _on_Area2D_area_exited(area):
  if(area.is_in_group("Platform")):
   grounded = false
+  
 
 
-	
-
+func _on_Area2D_body_entered(body):
+	if(body.get_name() == "tankbeetle" or body.get_name() == "worm" or body.get_name() == "ant"):
+        body.queue_free()

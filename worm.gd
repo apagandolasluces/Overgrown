@@ -34,6 +34,7 @@ func _on_Area2D_area_exited(area):
  if(area.is_in_group("Platform")):
   grounded = true
 
-
+func dead():
+  self.free()
 	
 
