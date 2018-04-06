@@ -137,7 +137,8 @@ texture = ExtResource( 7 )
 
 position = Vector2( 520.957, 513.335 )
 scale = Vector2( 1.45341, 1.40706 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+z_index = 1
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="floor" type="Area2D" parent="." index="2" groups=[
 "Platform",
@@ -168,10 +169,10 @@ position = Vector2( 933.916, 487.807 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 script = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="tankbeetle" index="0"]
 
@@ -204,10 +205,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 66.6223, 514.091 )
 scale = Vector2( 2, 2 )
-z_index = 1
 frames = SubResource( 4 )
 animation = "default"
-frame = 5
+frame = 4
 playing = true
 script = ExtResource( 21 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -242,10 +242,8 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 340.622, 501.091 )
 scale = Vector2( 2, 2 )
-z_index = 1
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 script = ExtResource( 21 )
 _sections_unfolded = [ "Transform", "Z Index" ]
