@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/tankbeetle (2).png-2cbc4bb346ee89eefe1797b484b1a0cf.stex"
+
+[deps]
+
+source_file="res://characters/tankbeetle (2).png"
+source_md5="dcffddb963ab0c62775b8c7a4fbd9a90"
+
+dest_files=[ "res://.import/tankbeetle (2).png-2cbc4bb346ee89eefe1797b484b1a0cf.stex" ]
+dest_md5="518100f00beabf4f0e4c2ac9da6e8f99"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

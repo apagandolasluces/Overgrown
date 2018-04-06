@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tankbeetle.png-246d8829806b4351e2a45914b44fe40b.stex"
+path="res://.import/cloud4.png-b9b64afb95e73953110827fbfd583f95.stex"
 
 [deps]
 
-source_file="res://tankbeetle.png"
-source_md5="67c9c6d0c08336a136b16375e05bc275"
+source_file="res://background/cloud4.png"
+source_md5="678b777c64465f9c18afccf092574d8c"
 
-dest_files=[ "res://.import/tankbeetle.png-246d8829806b4351e2a45914b44fe40b.stex" ]
-dest_md5="f59b23be236a045845d368242861de96"
+dest_files=[ "res://.import/cloud4.png-b9b64afb95e73953110827fbfd583f95.stex" ]
+dest_md5="34b09ce89b2775e0870ac008fc8a7ed4"
 
 [params]
 

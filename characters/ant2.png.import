@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ant2.png-875744ec71ed8916e2f9a029ef1397b2.stex"
+path="res://.import/ant2.png-364417257c74a642ec671cdab2f435d5.stex"
 
 [deps]
 
-source_file="res://ant2.png"
-source_md5="47acd5f66ddb7bd63f3fa0df86f140fa"
+source_file="res://characters/ant2.png"
+source_md5="c434b8f166c05249101b47b37a8d827d"
 
-dest_files=[ "res://.import/ant2.png-875744ec71ed8916e2f9a029ef1397b2.stex" ]
-dest_md5="a9e33e745fd21c8e80addd9428a797dc"
+dest_files=[ "res://.import/ant2.png-364417257c74a642ec671cdab2f435d5.stex" ]
+dest_md5="df39a307fee2f718bbaa92c591c472a8"
 
 [params]
 

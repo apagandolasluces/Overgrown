@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/worm.png-2e1629290dddf451fbcf9903ce499d1e.stex"
+path="res://.import/worm.png-6d8d1dd5a0dba13b5676725c619fe259.stex"
 
 [deps]
 
-source_file="res://worm.png"
-source_md5="8526c40eccea462e49b0f9ac0621289c"
+source_file="res://characters/worm.png"
+source_md5="435843d06ad5ae980a9b4806d2a05846"
 
-dest_files=[ "res://.import/worm.png-2e1629290dddf451fbcf9903ce499d1e.stex" ]
-dest_md5="e7fcfa608aa95f21648c03e609e866a7"
+dest_files=[ "res://.import/worm.png-6d8d1dd5a0dba13b5676725c619fe259.stex" ]
+dest_md5="e82b6c53f9e4cf738047be858a1a9954"
 
 [params]
 

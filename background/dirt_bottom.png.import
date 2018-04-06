@@ -7,10 +7,10 @@ path="res://.import/dirt_bottom.png-c0a1e9ef7e6840b5b1c30f5ae3c2e712.stex"
 [deps]
 
 source_file="res://background/dirt_bottom.png"
-source_md5="15a033eccc27f05161d183cdd240e905"
+source_md5="0f4e6fe736f8afb02febff4b9bce027f"
 
 dest_files=[ "res://.import/dirt_bottom.png-c0a1e9ef7e6840b5b1c30f5ae3c2e712.stex" ]
-dest_md5="42c3bd6b9a3b7c106b9b764815b43553"
+dest_md5="b625c189df5dc73af343adfd4e37f22f"
 
 [params]
 
