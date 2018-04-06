@@ -16,12 +16,12 @@ func _process(delta):
         position -= direction * delta
         if(position.x < 40):
             direction.x = -(direction.x)
-            get_node("Sprite").set_flip_h(true)
+            set_scale(Vector2(-3, 3))
     if(position.x > screen_size.x):
         position += direction * delta
         if(position.x > screen_size.x - 40):
             direction.x = -(direction.x)
-            get_node("Sprite").set_flip_h(false)
+            set_scale(Vector2(3,3))
 	
 	
 		
