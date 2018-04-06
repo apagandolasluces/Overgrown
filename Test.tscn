@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
 [ext_resource path="res://background_tileset.tres" type="TileSet" id=2]
@@ -24,6 +24,15 @@
 [ext_resource path="res://characters/ant2.png" type="Texture" id=22]
 [ext_resource path="res://characters/ant3.png" type="Texture" id=23]
 [ext_resource path="res://characters/ant4.png" type="Texture" id=24]
+
+[sub_resource type="SpriteFrames" id=7]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -138,6 +147,7 @@ texture = ExtResource( 7 )
 position = Vector2( 520.957, 513.335 )
 scale = Vector2( 1.45341, 1.40706 )
 z_index = 1
+frames = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="floor" type="Area2D" parent="." index="2" groups=[
@@ -244,6 +254,7 @@ position = Vector2( 340.622, 501.091 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 1
 playing = true
 script = ExtResource( 21 )
 _sections_unfolded = [ "Transform", "Z Index" ]
